@@ -1,0 +1,36 @@
+<SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Body>
+		<m:CIMB3rdParty_InquiryRs xmlns:m="http://CIMB3rdParty/BillPaymentWS">
+			<InquiryRs>
+				<TransactionID>002151069222</TransactionID>
+				<ChannelID>NGA</ChannelID>
+				<TerminalID/>
+				<TransactionDate>2016122010392800</TransactionDate>
+				<CompanyCode>4589</CompanyCode>
+				<CustomerKey1>100100035670</CustomerKey1>
+				<CustomerKey2/>
+				<CustomerKey3/>
+				<BillDetailList>
+					<BillDetail>
+						<BillCurrency/>
+						<BillCode/>
+						<BillAmount>0</BillAmount>
+						<BillReference/>
+					</BillDetail>
+				</BillDetailList>
+				<Currency>IDR</Currency>
+				<Amount>0</Amount>
+				<Fee>0</Fee>
+				<PaidAmount>0</PaidAmount>
+				<CustomerName>ACHMAD SETIO ADINUGROHO</CustomerName>
+				<AdditionalData1/>
+				<AdditionalData2/>
+				<AdditionalData3/>
+				<AdditionalData4/>
+				<FlagPayment>1</FlagPayment>
+				<ResponseCode>00</ResponseCode>
+				<ResponseDescription>Success</ResponseDescription>
+			</InquiryRs>
+		</m:CIMB3rdParty_InquiryRs>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

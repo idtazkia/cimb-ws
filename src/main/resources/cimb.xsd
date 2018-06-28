@@ -1,0 +1,142 @@
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- inquiry request -->
+    <xs:complexType name="InquiryRqType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="TransactionID"/>
+            <xs:element type="xs:string" name="ChannelID"/>
+            <xs:element type="xs:string" name="TerminalID"/>
+            <xs:element type="xs:string" name="TransactionDate"/>
+            <xs:element type="xs:string" name="CompanyCode"/>
+            <xs:element type="xs:string" name="CustomerKey1"/>
+            <xs:element type="xs:string" name="CustomerKey2"/>
+            <xs:element type="xs:string" name="CustomerKey3"/>
+            <xs:element type="xs:string" name="AdditionalData1"/>
+            <xs:element type="xs:string" name="AdditionalData2"/>
+            <xs:element type="xs:string" name="AdditionalData3"/>
+            <xs:element type="xs:string" name="AdditionalData4"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CIMB3rdParty_InquiryRqType">
+        <xs:sequence>
+            <xs:element type="InquiryRqType" name="InquiryRq"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- inquiry response -->
+    <xs:complexType name="BillDetailType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="BillCurrency"/>
+            <xs:element type="xs:string" name="BillCode"/>
+            <xs:element type="xs:decimal" name="BillAmount"/>
+            <xs:element type="xs:string" name="BillReference"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="BillDetailListType">
+        <xs:sequence>
+            <xs:element type="BillDetailType" name="BillDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="InquiryRsType">
+        <xs:sequence>
+            <xs:element type="xs:long" name="TransactionID"/>
+            <xs:element type="xs:string" name="ChannelID"/>
+            <xs:element type="xs:string" name="TerminalID"/>
+            <xs:element type="xs:string" name="TransactionDate"/>
+            <xs:element type="xs:string" name="CompanyCode"/>
+            <xs:element type="xs:string" name="CustomerKey1"/>
+            <xs:element type="xs:string" name="CustomerKey2"/>
+            <xs:element type="xs:string" name="CustomerKey3"/>
+            <xs:element type="BillDetailListType" name="BillDetailList"/>
+            <xs:element type="xs:string" name="Currency"/>
+            <xs:element type="xs:decimal" name="Amount"/>
+            <xs:element type="xs:decimal" name="Fee"/>
+            <xs:element type="xs:decimal" name="PaidAmount"/>
+            <xs:element type="xs:string" name="CustomerName"/>
+            <xs:element type="xs:string" name="AdditionalData1"/>
+            <xs:element type="xs:string" name="AdditionalData2"/>
+            <xs:element type="xs:string" name="AdditionalData3"/>
+            <xs:element type="xs:string" name="AdditionalData4"/>
+            <xs:element type="xs:string" name="FlagPayment"/>
+            <xs:element type="xs:string" name="ResponseCode"/>
+            <xs:element type="xs:string" name="ResponseDescription"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="InquiryRs" type="InquiryRsType"/>
+
+    <xs:complexType name="CIMB3rdParty_InquiryRs">
+        <xs:sequence>
+            <xs:element type="InquiryRsType" name="InquiryRs"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- payment request -->
+    <xs:complexType name="PaymentRqType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="TransactionID"/>
+            <xs:element type="xs:string" name="ChannelID"/>
+            <xs:element type="xs:string" name="TerminalID"/>
+            <xs:element type="xs:string" name="TransactionDate"/>
+            <xs:element type="xs:string" name="CompanyCode"/>
+            <xs:element type="xs:string" name="CustomerKey1"/>
+            <xs:element type="xs:string" name="CustomerKey2"/>
+            <xs:element type="xs:string" name="CustomerKey3"/>
+            <xs:element type="xs:string" name="Language"/>
+            <xs:element type="xs:string" name="Currency"/>
+            <xs:element type="xs:decimal" name="Amount"/>
+            <xs:element type="xs:decimal" name="Fee"/>
+            <xs:element type="xs:decimal" name="PaidAmount"/>
+            <xs:element type="xs:string" name="ReferenceNumberTransaction"/>
+            <xs:element type="xs:string" name="FlagPaymentList"/>
+            <xs:element type="xs:string" name="CustomerName"/>
+            <xs:element type="xs:string" name="AdditionalData1"/>
+            <xs:element type="xs:string" name="AdditionalData2"/>
+            <xs:element type="xs:string" name="AdditionalData3"/>
+            <xs:element type="xs:string" name="AdditionalData4"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="PaymentRq" type="PaymentRqType"/>
+    <xs:complexType name="CIMB3rdParty_PaymentRq">
+        <xs:sequence>
+            <xs:element type="PaymentRqType" name="PaymentRq"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- payment response -->
+    <xs:complexType name="PaymentRsType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="TransactionID"/>
+            <xs:element type="xs:string" name="ChannelID"/>
+            <xs:element type="xs:string" name="TerminalID"/>
+            <xs:element type="xs:string" name="TransactionDate"/>
+            <xs:element type="xs:string" name="CompanyCode"/>
+            <xs:element type="xs:string" name="CustomerKey1"/>
+            <xs:element type="xs:string" name="CustomerKey2"/>
+            <xs:element type="xs:string" name="CustomerKey3"/>
+            <xs:element type="xs:string" name="PaymentFlag"/>
+            <xs:element type="xs:string" name="CustomerName"/>
+            <xs:element type="xs:string" name="Currency"/>
+            <xs:element type="xs:decimal" name="Amount"/>
+            <xs:element type="xs:decimal" name="Fee"/>
+            <xs:element type="xs:decimal" name="PaidAmount"/>
+            <xs:element type="xs:string" name="ReferenceNumberTransaction"/>
+            <xs:element type="xs:string" name="AdditionalData1"/>
+            <xs:element type="xs:string" name="AdditionalData2"/>
+            <xs:element type="xs:string" name="AdditionalData3"/>
+            <xs:element type="xs:string" name="AdditionalData4"/>
+            <xs:element type="xs:string" name="ResponseCode"/>
+            <xs:element type="xs:string" name="ResponseDescription"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PaymentRs" type="PaymentRsType"/>
+    <xs:complexType name="CIMB3rdParty_PaymentRs">
+        <xs:sequence>
+            <xs:element type="PaymentRsType" name="PaymentRs"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

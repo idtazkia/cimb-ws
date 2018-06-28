@@ -1,0 +1,20 @@
+<SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+ <SOAP-ENV:Body>
+ <m:CIMB3rdParty_InquiryRq xmlns:m="http://CIMB3rdParty/BillPaymentWS">
+  <m:InquiryRq>
+  <m:TransactionID>002151069222</m:TransactionID> 
+  <m:ChannelID>NGA</m:ChannelID> 
+  <m:TerminalID /> 
+  <m:TransactionDate>2016122010392800</m:TransactionDate> 
+  <m:CompanyCode>2899</m:CompanyCode> 
+  <m:CustomerKey1>100100035670</m:CustomerKey1> 
+  <m:CustomerKey2 /> 
+  <m:CustomerKey3 /> 
+  <m:AdditionalData1 /> 
+  <m:AdditionalData2 /> 
+  <m:AdditionalData3 /> 
+  <m:AdditionalData4 /> 
+  </m:InquiryRq>
+ </m:CIMB3rdParty_InquiryRq>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,28 @@
+<SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+ <SOAP-ENV:Body>
+  <m:CIMB3rdParty_PaymentRq xmlns:m="http://CIMB3rdParty/BillPaymentWS">
+  <m:PaymentRq>
+  <m:TransactionID>002151070137</m:TransactionID> 
+  <m:ChannelID>SBS</m:ChannelID> 
+  <m:TerminalID /> 
+  <m:TransactionDate>2016122010474100</m:TransactionDate> 
+  <m:CompanyCode>4589</m:CompanyCode> 
+  <m:CustomerKey1>100100035670</m:CustomerKey1> 
+  <m:CustomerKey2 /> 
+  <m:CustomerKey3 /> 
+  <m:Language /> 
+  <m:Currency>IDR</m:Currency> 
+  <m:Amount>23334</m:Amount> 
+  <m:Fee>0</m:Fee> 
+  <m:PaidAmount>23334</m:PaidAmount> 
+  <m:ReferenceNumberTransaction>161016GM01015139</m:ReferenceNumberTransaction> 
+  <m:FlagPaymentList>100000</m:FlagPaymentList> 
+  <m:CustomerName>ACHMAD SETIO ADINUGROHO</m:CustomerName> 
+  <m:AdditionalData1>0000000703058018100</m:AdditionalData1> 
+  <m:AdditionalData2>00001</m:AdditionalData2> 
+  <m:AdditionalData3 /> 
+  <m:AdditionalData4 /> 
+  </m:PaymentRq>
+  </m:CIMB3rdParty_PaymentRq>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
