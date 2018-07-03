@@ -1,9 +1,10 @@
 <xs:schema attributeFormDefault="unqualified"
            elementFormDefault="qualified"
+           targetNamespace="http://CIMB3rdParty/BillPaymentWS"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <!-- inquiry request -->
-    <xs:complexType name="InquiryRqType">
+    <xs:complexType name="InquiryRq">
         <xs:sequence>
             <xs:element type="xs:string" name="TransactionID"/>
             <xs:element type="xs:string" name="ChannelID"/>
@@ -20,14 +21,14 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="CIMB3rdParty_InquiryRqType">
+    <xs:complexType name="CIMB3rdParty_InquiryRq">
         <xs:sequence>
-            <xs:element type="InquiryRqType" name="InquiryRq"/>
+            <xs:element type="InquiryRq" name="InquiryRq"/>
         </xs:sequence>
     </xs:complexType>
 
     <!-- inquiry response -->
-    <xs:complexType name="BillDetailType">
+    <xs:complexType name="BillDetail">
         <xs:sequence>
             <xs:element type="xs:string" name="BillCurrency"/>
             <xs:element type="xs:string" name="BillCode"/>
@@ -35,12 +36,12 @@
             <xs:element type="xs:string" name="BillReference"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="BillDetailListType">
+    <xs:complexType name="BillDetailList">
         <xs:sequence>
-            <xs:element type="BillDetailType" name="BillDetail"/>
+            <xs:element type="BillDetail" name="BillDetail"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="InquiryRsType">
+    <xs:complexType name="InquiryRs">
         <xs:sequence>
             <xs:element type="xs:long" name="TransactionID"/>
             <xs:element type="xs:string" name="ChannelID"/>
@@ -50,7 +51,7 @@
             <xs:element type="xs:string" name="CustomerKey1"/>
             <xs:element type="xs:string" name="CustomerKey2"/>
             <xs:element type="xs:string" name="CustomerKey3"/>
-            <xs:element type="BillDetailListType" name="BillDetailList"/>
+            <xs:element type="BillDetailList" name="BillDetailList"/>
             <xs:element type="xs:string" name="Currency"/>
             <xs:element type="xs:decimal" name="Amount"/>
             <xs:element type="xs:decimal" name="Fee"/>
@@ -66,16 +67,16 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:element name="InquiryRs" type="InquiryRsType"/>
+    <xs:element name="InquiryRs" type="InquiryRs"/>
 
     <xs:complexType name="CIMB3rdParty_InquiryRs">
         <xs:sequence>
-            <xs:element type="InquiryRsType" name="InquiryRs"/>
+            <xs:element type="InquiryRs" name="InquiryRs"/>
         </xs:sequence>
     </xs:complexType>
 
     <!-- payment request -->
-    <xs:complexType name="PaymentRqType">
+    <xs:complexType name="PaymentRq">
         <xs:sequence>
             <xs:element type="xs:string" name="TransactionID"/>
             <xs:element type="xs:string" name="ChannelID"/>
@@ -100,15 +101,15 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:element name="PaymentRq" type="PaymentRqType"/>
+    <xs:element name="PaymentRq" type="PaymentRq"/>
     <xs:complexType name="CIMB3rdParty_PaymentRq">
         <xs:sequence>
-            <xs:element type="PaymentRqType" name="PaymentRq"/>
+            <xs:element type="PaymentRq" name="PaymentRq"/>
         </xs:sequence>
     </xs:complexType>
 
     <!-- payment response -->
-    <xs:complexType name="PaymentRsType">
+    <xs:complexType name="PaymentRs">
         <xs:sequence>
             <xs:element type="xs:string" name="TransactionID"/>
             <xs:element type="xs:string" name="ChannelID"/>
@@ -133,10 +134,10 @@
             <xs:element type="xs:string" name="ResponseDescription"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:element name="PaymentRs" type="PaymentRsType"/>
+    <xs:element name="PaymentRs" type="PaymentRs"/>
     <xs:complexType name="CIMB3rdParty_PaymentRs">
         <xs:sequence>
-            <xs:element type="PaymentRsType" name="PaymentRs"/>
+            <xs:element type="PaymentRs" name="PaymentRs"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
