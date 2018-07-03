@@ -1,4 +1,4 @@
-package id.ac.tazkia.payment.cimb.cimbws.dto;
+package id.ac.tazkia.payment.cimb.dto;
 
 import lombok.Data;
 

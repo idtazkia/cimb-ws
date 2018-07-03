@@ -1,6 +1,6 @@
-package id.ac.tazkia.payment.cimb.cimbws.controller;
+package id.ac.tazkia.payment.cimb.controller;
 
-import id.ac.tazkia.payment.cimb.cimbws.dto.*;
+import id.ac.tazkia.payment.cimb.dto.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;

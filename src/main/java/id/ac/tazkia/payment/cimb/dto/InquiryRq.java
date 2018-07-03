@@ -1,8 +1,7 @@
-package id.ac.tazkia.payment.cimb.cimbws.dto;
+package id.ac.tazkia.payment.cimb.dto;
 
 import lombok.Data;
 
-import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -10,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @Data
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PaymentRs", propOrder = {
+@XmlType(name = "InquiryRq", propOrder = {
     "transactionID",
     "channelID",
     "terminalID",
@@ -19,21 +18,12 @@ import javax.xml.bind.annotation.XmlType;
     "customerKey1",
     "customerKey2",
     "customerKey3",
-    "paymentFlag",
-    "customerName",
-    "currency",
-    "amount",
-    "fee",
-    "paidAmount",
-    "referenceNumberTransaction",
     "additionalData1",
     "additionalData2",
     "additionalData3",
-    "additionalData4",
-    "responseCode",
-    "responseDescription"
+    "additionalData4"
 })
-public class PaymentRs {
+public class InquiryRq {
 
     @XmlElement(name = "TransactionID", required = true)
     private String transactionID;
@@ -51,20 +41,6 @@ public class PaymentRs {
     private String customerKey2;
     @XmlElement(name = "CustomerKey3", required = true)
     private String customerKey3;
-    @XmlElement(name = "PaymentFlag", required = true)
-    private String paymentFlag;
-    @XmlElement(name = "CustomerName", required = true)
-    private String customerName;
-    @XmlElement(name = "Currency", required = true)
-    private String currency;
-    @XmlElement(name = "Amount", required = true)
-    private BigDecimal amount;
-    @XmlElement(name = "Fee", required = true)
-    private BigDecimal fee;
-    @XmlElement(name = "PaidAmount", required = true)
-    private BigDecimal paidAmount;
-    @XmlElement(name = "ReferenceNumberTransaction", required = true)
-    private String referenceNumberTransaction;
     @XmlElement(name = "AdditionalData1", required = true)
     private String additionalData1;
     @XmlElement(name = "AdditionalData2", required = true)
@@ -73,9 +49,5 @@ public class PaymentRs {
     private String additionalData3;
     @XmlElement(name = "AdditionalData4", required = true)
     private String additionalData4;
-    @XmlElement(name = "ResponseCode", required = true)
-    private String responseCode;
-    @XmlElement(name = "ResponseDescription", required = true)
-    private String responseDescription;
 
 }

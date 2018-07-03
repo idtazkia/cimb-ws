@@ -1,4 +1,4 @@
-package id.ac.tazkia.payment.cimb.cimbws.config;
+package id.ac.tazkia.payment.cimb.config;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
