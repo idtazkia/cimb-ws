@@ -155,12 +155,8 @@ public class CimbWsEndpoint {
 
         if (AccountType.CLOSED.equals(va.getAccountType())) {
             response.getInquiryRs().setFlagPayment("1");
-        } else if (AccountType.OPEN.equals(va.getAccountType())) {
-            response.getInquiryRs().setFlagPayment("2");
-        } else if (AccountType.INSTALLMENT.equals(va.getAccountType())) {
-            response.getInquiryRs().setFlagPayment("3");
         } else {
-            response.getInquiryRs().setFlagPayment("9");
+            response.getInquiryRs().setFlagPayment("0");
         }
     }
 }
