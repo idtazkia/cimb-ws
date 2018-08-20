@@ -107,9 +107,10 @@ public class CimbWsEndpoint {
             paymentRs.setAmount(payment.getAmount().setScale(0, RoundingMode.HALF_EVEN));
             paymentRs.setFee(BigDecimal.ZERO.setScale(0, RoundingMode.HALF_EVEN));
             paymentRs.setPaidAmount(payment.getAmount().setScale(0, RoundingMode.HALF_EVEN));
-            paymentRs.setPaymentFlag("1");
+            paymentRs.setPaymentFlag("100000");
             response.setPaymentRs(paymentRs);
-
+            response.getPaymentRs().setResponseCode(PaymentServiceConstants.RC_SUCCESS);
+            response.getPaymentRs().setResponseDescription(PaymentServiceConstants.MSG_SUCCESS);
         } catch (InvalidRequestException err) {
             LOGGER.warn(err.getMessage());
             response.getPaymentRs().setResponseCode(PaymentServiceConstants.RC_GENERAL_FAILURE);
