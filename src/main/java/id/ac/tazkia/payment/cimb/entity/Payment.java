@@ -26,9 +26,6 @@ public class Payment {
     private BigDecimal amount;
 
     @NotEmpty
-    private String transactionReference;
-
-    @NotEmpty
     private String clientReference;
 
     @NotNull

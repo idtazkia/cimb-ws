@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlType;
 public class InquiryRs {
 
     @XmlElement(name = "TransactionID")
-    private long transactionID;
+    private String transactionID;
     @XmlElement(name = "ChannelID", required = true)
     private String channelID;
     @XmlElement(name = "TerminalID", required = true)

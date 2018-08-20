@@ -13,6 +13,6 @@ import javax.xml.bind.annotation.*;
 public class CIMB3RdPartyInquiryRs {
 
     @XmlElement(name = "InquiryRs", required = true)
-    private InquiryRs inquiryRs;
+    private InquiryRs inquiryRs = new InquiryRs();
 
 }

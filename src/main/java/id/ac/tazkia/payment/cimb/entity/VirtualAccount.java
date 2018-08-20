@@ -27,6 +27,9 @@ public class VirtualAccount {
     private String invoiceNumber;
 
     @NotNull @NotEmpty
+    private String invoiceType;
+
+    @NotNull @NotEmpty
     private String name;
 
     @NotNull
@@ -52,8 +55,15 @@ public class VirtualAccount {
     @NotNull @Column(columnDefinition = "DATE")
     private LocalDate expireDate;
 
-
     @NotNull
     @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
+
+    public BigDecimal effectiveAmount(){
+        if(AccountType.INSTALLMENT.equals(accountType)){
+            return amount.subtract(cumulativePayment);
+        }
+
+        return amount;
+    }
 }
