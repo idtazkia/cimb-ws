@@ -1,8 +1,8 @@
 package id.ac.tazkia.payment.cimb.dao;
 
+import id.ac.tazkia.payment.cimb.entity.AccountStatus;
+import id.ac.tazkia.payment.cimb.entity.VirtualAccount;
 import org.springframework.data.repository.PagingAndSortingRepository;
-
-import id.ac.tazkia.payment.cimb.entity.*;
 
 import java.util.Optional;
 

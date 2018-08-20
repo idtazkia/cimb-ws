@@ -1,18 +1,17 @@
 package id.ac.tazkia.payment.cimb.service;
 
-import java.math.BigDecimal;
-import java.util.UUID;
-
+import id.ac.tazkia.payment.cimb.dao.PaymentDao;
+import id.ac.tazkia.payment.cimb.dao.VirtualAccountDao;
+import id.ac.tazkia.payment.cimb.entity.*;
+import id.ac.tazkia.payment.cimb.exception.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import id.ac.tazkia.payment.cimb.dao.*;
-import id.ac.tazkia.payment.cimb.entity.*;
-import id.ac.tazkia.payment.cimb.exception.*;
 import org.springframework.util.StringUtils;
+
+import java.math.BigDecimal;
 
 @Service @Transactional(rollbackFor=PaymentServiceException.class)
 public class PaymentService {
