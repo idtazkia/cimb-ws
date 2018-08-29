@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.xml.bind.annotation.*;
 
 @Data
-@XmlRootElement
+@XmlRootElement(name = "CIMB3rdParty_PaymentRs")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CIMB3rdParty_PaymentRs", propOrder = {
     "paymentRs"
