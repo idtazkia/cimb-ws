@@ -11,10 +11,16 @@ insert into virtual_account (id, invoice_number, account_number, account_type, i
 values ('2579fcce-be7b-48cf-b065-f05d25aba01c', '20180820003', '081234567892', 'OPEN', 'TAZKIAINF1', 'Donasi Lombok', 10000, '2018-08-01 23:59:59', '2019-02-01', 'ACTIVE');
 
 insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
-values ('0a03e5fd-e2d7-43d6-aaf4-db6c14e06a88', '20180820004', '081234567893', 'INSTALLMENT', 'TAZKIAASR1', 'Asrama', 10000000, '2018-08-01 23:59:59', '2019-02-01', 'ACTIVE');
+values ('0a03e5fd-e2d7-43d6-aaf4-db6c14e06a88', '20180820004', '081234567893', 'INSTALLMENT', 'TAZKIAASR1', 'Asrama a.n Mahasiswi 001', 10000000, '2018-08-01 23:59:59', '2019-02-01', 'ACTIVE');
 
 insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
 values ('f551cacb-fdec-4de9-98a8-1007441612db', '20180820005', '081234567894', 'CLOSED', 'TAZKIASPP1', 'SPP Tetap a.n Mahasiswa 001', 500000, '2018-08-01 23:59:59', '2019-02-01', 'ACTIVE');
 
 insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
 values ('82ed5496-fa32-4b48-9442-d91e76b6963d', '20180820006', '081234567895', 'CLOSED', 'TAZKIASPP2', 'SPP Variabel a.n Mahasiswa 001', 750000, '2018-08-01 23:59:59', '2019-02-01', 'ACTIVE');
+
+insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
+values ('2579fcce-be7b-48cf-b065-f05d25aba01d', '20180820007', '081234567896', 'OPEN', 'TAZKIAINF2', 'Infaq Shadaqah', 20000, '2018-08-01 23:59:59', '2019-02-01', 'ACTIVE');
+
+insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
+values ('0a03e5fd-e2d7-43d6-aaf4-db6c14e06a80', '20180820008', '081234567897', 'INSTALLMENT', 'TAZKIAGED1', 'Uang Gedung', 15000000, '2018-08-01 23:59:59', '2019-02-01', 'ACTIVE');
