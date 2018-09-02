@@ -24,3 +24,12 @@ values ('2579fcce-be7b-48cf-b065-f05d25aba01d', '20180820007', '081234567896', '
 
 insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
 values ('0a03e5fd-e2d7-43d6-aaf4-db6c14e06a80', '20180820008', '081234567897', 'INSTALLMENT', 'TAZKIAGED1', 'Uang Gedung', 15000000, '2018-08-01 23:59:59', '2019-02-01', 'ACTIVE');
+
+insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
+values ('0a03e5fd-e2d7-43d6-aaf4-db6c14e06a11', '20180903001', '123456789012345601', 'CLOSED', 'TAZKIATES1', 'Test Account 001', 120001, '2018-09-03 08:01:00', '2019-02-01', 'ACTIVE');
+
+insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
+values ('0a03e5fd-e2d7-43d6-aaf4-db6c14e06a12', '20180903002', '123456789012345602', 'CLOSED', 'TAZKIATES1', 'Test Account 002', 120002, '2018-09-03 08:02:00', '2019-02-02', 'ACTIVE');
+
+insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
+values ('0a03e5fd-e2d7-43d6-aaf4-db6c14e06a13', '20180903003', '123456789012345603', 'CLOSED', 'TAZKIATES1', 'Test Account 003', 120003, '2018-09-03 08:03:00', '2019-02-03', 'ACTIVE');
