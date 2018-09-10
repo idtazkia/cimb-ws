@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 @Service @Transactional(rollbackFor=PaymentServiceException.class)
 public class PaymentService {
@@ -37,6 +38,17 @@ public class PaymentService {
         }
         virtualAccountDao.save(va);
         return va;
+    }
+
+    public void delete(String vaNumber) throws VirtualAccountAlreadyPaidException {
+        Optional<VirtualAccount> va = virtualAccountDao.findByAccountNumberAndAccountStatus(vaNumber, AccountStatus.ACTIVE);
+        if (va.isPresent()) {
+            VirtualAccount virtualAccount = va.get();
+            if(paymentDao.countByVirtualAccount(virtualAccount) > 0) {
+                throw new VirtualAccountAlreadyPaidException("VA "+vaNumber+" already has payment in it");
+            }
+            virtualAccountDao.delete(virtualAccount);
+        }
     }
 
     public Payment pay(String accountNumber, BigDecimal amount, String reference) throws InvalidRequestException, VirtualAccountNotFoundException, PaymentAmountMismatchException, VirtualAccountAlreadyPaidException {
