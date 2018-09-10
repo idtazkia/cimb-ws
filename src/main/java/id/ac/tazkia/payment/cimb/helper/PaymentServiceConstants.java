@@ -14,4 +14,5 @@ public abstract class PaymentServiceConstants {
     public static final String RC_SUCCESS = "00";
     public static final String MSG_SUCCESS = "Transaction Success";
     public static final String INVOICE_TYPE_PREFIX = "TAZKIA00";
+    public static final String INVOICE_TYPE_PREFIX_DEFAULT = "00";
 }

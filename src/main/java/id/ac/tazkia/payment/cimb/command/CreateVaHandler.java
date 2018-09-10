@@ -15,6 +15,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 @Component
 public class CreateVaHandler implements VaHandler {
@@ -38,7 +39,12 @@ public class CreateVaHandler implements VaHandler {
         VirtualAccount va = new VirtualAccount();
         BeanUtils.copyProperties(request, va);
         va.setAccountNumber(clientId + String.format("%-12s", request.getAccountNumber() ).replace(' ', '0'));
-        va.setInvoiceType(PaymentServiceConstants.INVOICE_TYPE_PREFIX+request.getInvoiceType());
+
+        if(StringUtils.hasText(request.getInvoiceType())) {
+            va.setInvoiceType(PaymentServiceConstants.INVOICE_TYPE_PREFIX + request.getInvoiceType());
+        } else {
+            va.setInvoiceType(PaymentServiceConstants.INVOICE_TYPE_PREFIX + PaymentServiceConstants.INVOICE_TYPE_PREFIX_DEFAULT);
+        }
 
         LOGGER.debug("[VA-REQUEST-CREATE] : {}",va);
 
