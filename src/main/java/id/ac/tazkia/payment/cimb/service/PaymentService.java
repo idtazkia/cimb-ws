@@ -28,6 +28,17 @@ public class PaymentService {
                 .orElseThrow(() -> new VirtualAccountNotFoundException("Account number "+accountNumber+ " not found"));
     }
 
+    public VirtualAccount create(VirtualAccount va) throws VirtualAccountNumberAlreadyExistsException, InvoiceNumberAlreadyExistsException {
+        if (virtualAccountDao.findByAccountNumberAndAccountStatus(va.getAccountNumber(), AccountStatus.ACTIVE).isPresent()) {
+            throw new VirtualAccountNumberAlreadyExistsException("VA number " + va.getAccountNumber() + " already exists");
+        }
+        if (virtualAccountDao.findByInvoiceNumber(va.getInvoiceNumber()).isPresent()) {
+            throw new InvoiceNumberAlreadyExistsException("Invoice number " + va.getInvoiceNumber() + " already exists");
+        }
+        virtualAccountDao.save(va);
+        return va;
+    }
+
     public Payment pay(String accountNumber, BigDecimal amount, String reference) throws InvalidRequestException, VirtualAccountNotFoundException, PaymentAmountMismatchException, VirtualAccountAlreadyPaidException {
         if (!StringUtils.hasText(reference)) {
             throw new InvalidRequestException("Payment Reference missing");

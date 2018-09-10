@@ -50,14 +50,14 @@ public class VirtualAccount {
     private String phone;
 
     @NotNull
-    private LocalDateTime createTime;
+    private LocalDateTime createTime = LocalDateTime.now();
 
     @NotNull @Column(columnDefinition = "DATE")
     private LocalDate expireDate;
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    private AccountStatus accountStatus;
+    private AccountStatus accountStatus = AccountStatus.ACTIVE;
 
     public BigDecimal effectiveAmount(){
         if(AccountType.INSTALLMENT.equals(accountType)){

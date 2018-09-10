@@ -1,0 +1,1 @@
+{"bankId" : "cimb001", "invoiceNumber" : "01234567890","accountNumber" : "08123456","name" : "Endy Muhardin","description" : "Tagihan Test","email" : "endy@tazkia.ac.id","phone" : "081234567891","amount" : 100001.0,"expireDate" : "2019-01-21","invoiceType":"97","accountType" : "CLOSED","requestType" : "CREATE"}
