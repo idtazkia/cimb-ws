@@ -19,14 +19,14 @@ public class SoapConfiguration {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean(servlet, "/ws/*");
+        return new ServletRegistrationBean(servlet, "/*");
     }
 
     @Bean(name = "cimb")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema cimbSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("CimbPort");
-        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setLocationUri("/");
         wsdl11Definition.setTargetNamespace("http://CIMB3rdParty/BillPaymentWS");
         wsdl11Definition.setSchema(cimbSchema);
         return wsdl11Definition;
