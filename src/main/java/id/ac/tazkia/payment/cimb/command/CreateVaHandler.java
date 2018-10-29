@@ -33,6 +33,7 @@ public class CreateVaHandler implements VaHandler {
 
     @Override
     public VaResponse process(VaRequest request) {
+        LOGGER.info("[VA-REQUEST-CREATE] : Incoming : {}", request);
         VaResponse vaResponse = new VaResponse();
         BeanUtils.copyProperties(request, vaResponse);
 
@@ -51,8 +52,10 @@ public class CreateVaHandler implements VaHandler {
         try {
             paymentService.create(va);
             vaResponse.setRequestStatus(VaRequestStatus.SUCCESS);
+            vaResponse.setAccountNumber(va.getAccountNumber());
+            LOGGER.info("[VA-REQUEST-CREATE] : Success : {}-{}-{}", va.getAccountNumber(), va.getName(), va.getAmount());
         } catch (VirtualAccountNumberAlreadyExistsException | InvoiceNumberAlreadyExistsException e){
-            LOGGER.error(e.getMessage(), e);
+            LOGGER.error("[VA-REQUEST-CREATE] : Error : {}", e.getMessage());
             vaResponse.setRequestStatus(VaRequestStatus.ERROR);
         }
 
