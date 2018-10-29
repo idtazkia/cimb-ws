@@ -58,20 +58,23 @@ public class CimbWsEndpoint {
                 LOGGER.debug("Customer Key 1 : {}", accountNumber);
             }
 
+
+
             VirtualAccount va = paymentService.findByAccountNumber(accountNumber);
             fillResponseData(va, response);
             response.getInquiryRs().setResponseCode(PaymentServiceConstants.RC_SUCCESS);
             response.getInquiryRs().setResponseDescription(PaymentServiceConstants.MSG_SUCCESS);
+            LOGGER.info("[INQUIRY] - [SUCCESS] : Acc [{}]-[{}], Rp. {}", accountNumber, va.getName(), va.getAmount());
         } catch (InvalidRequestException err) {
-            LOGGER.warn(err.getMessage());
+            LOGGER.warn("[INQUIRY] - [ERROR] : Acc [{}], Error : {}", request.getInquiryRq().getCustomerKey1(), err.getMessage());
             response.getInquiryRs().setResponseCode(PaymentServiceConstants.RC_GENERAL_FAILURE);
             response.getInquiryRs().setResponseDescription(PaymentServiceConstants.MSG_GENERAL_FAILURE);
         } catch (VirtualAccountNotFoundException err) {
-            LOGGER.info(err.getMessage());
+            LOGGER.warn("[INQUIRY] - [ERROR] : Acc [{}], Error : {}", request.getInquiryRq().getCustomerKey1(), err.getMessage());
             response.getInquiryRs().setResponseCode(PaymentServiceConstants.RC_CUSTOMER_NOT_FOUND);
             response.getInquiryRs().setResponseDescription(PaymentServiceConstants.MSG_CUSTOMER_NOT_FOUND);
         } catch (Exception err){
-            LOGGER.error(err.getMessage(), err);
+            LOGGER.warn("[INQUIRY] - [ERROR] : Acc [{}], Error : {}", request.getInquiryRq().getCustomerKey1(), err.getMessage());
             response.getInquiryRs().setResponseCode(PaymentServiceConstants.RC_GENERAL_FAILURE);
             response.getInquiryRs().setResponseDescription(PaymentServiceConstants.MSG_GENERAL_FAILURE);
         }
@@ -111,24 +114,25 @@ public class CimbWsEndpoint {
             response.setPaymentRs(paymentRs);
             response.getPaymentRs().setResponseCode(PaymentServiceConstants.RC_SUCCESS);
             response.getPaymentRs().setResponseDescription(PaymentServiceConstants.MSG_SUCCESS);
+            LOGGER.info("[PAYMENT] - [SUCCESS] : Acc [{}]-[{}], Rp [{}]", payment.getVirtualAccount().getAccountNumber(), payment.getVirtualAccount().getName(), payment.getAmount());
         } catch (InvalidRequestException err) {
-            LOGGER.warn(err.getMessage());
+            LOGGER.warn("[PAYMENT] - [ERROR] : Acc [{}], Rp [{}], Error [{}]", request.getPaymentRq().getCustomerKey1(), request.getPaymentRq().getPaidAmount(),err.getMessage());
             response.getPaymentRs().setResponseCode(PaymentServiceConstants.RC_GENERAL_FAILURE);
             response.getPaymentRs().setResponseDescription(PaymentServiceConstants.MSG_GENERAL_FAILURE);
         } catch (VirtualAccountNotFoundException err) {
-            LOGGER.info(err.getMessage());
+            LOGGER.warn("[PAYMENT] - [ERROR] : Acc [{}], Rp [{}], Error [{}]", request.getPaymentRq().getCustomerKey1(), request.getPaymentRq().getPaidAmount(),err.getMessage());
             response.getPaymentRs().setResponseCode(PaymentServiceConstants.RC_CUSTOMER_NOT_FOUND);
             response.getPaymentRs().setResponseDescription(PaymentServiceConstants.MSG_CUSTOMER_NOT_FOUND);
         } catch (PaymentAmountMismatchException err) {
-            LOGGER.info(err.getMessage());
+            LOGGER.warn("[PAYMENT] - [ERROR] : Acc [{}], Rp [{}], Error [{}]", request.getPaymentRq().getCustomerKey1(), request.getPaymentRq().getPaidAmount(),err.getMessage());
             response.getPaymentRs().setResponseCode(PaymentServiceConstants.RC_INVALID_AMOUNT);
             response.getPaymentRs().setResponseDescription(PaymentServiceConstants.MSG_INVALID_AMOUNT);
         } catch (VirtualAccountAlreadyPaidException err) {
-            LOGGER.info(err.getMessage());
+            LOGGER.warn("[PAYMENT] - [ERROR] : Acc [{}], Rp [{}], Error [{}]", request.getPaymentRq().getCustomerKey1(), request.getPaymentRq().getPaidAmount(),err.getMessage());
             response.getPaymentRs().setResponseCode(PaymentServiceConstants.RC_ALREADY_PAID);
             response.getPaymentRs().setResponseDescription(PaymentServiceConstants.MSG_ALREADY_PAID);
         } catch (Exception err){
-            LOGGER.error(err.getMessage(), err);
+            LOGGER.warn("[PAYMENT] - [ERROR] : Acc [{}], Rp [{}], Error [{}]", request.getPaymentRq().getCustomerKey1(), request.getPaymentRq().getPaidAmount(),err.getMessage());
             response.getPaymentRs().setResponseCode(PaymentServiceConstants.RC_GENERAL_FAILURE);
             response.getPaymentRs().setResponseDescription(PaymentServiceConstants.MSG_GENERAL_FAILURE);
         }
