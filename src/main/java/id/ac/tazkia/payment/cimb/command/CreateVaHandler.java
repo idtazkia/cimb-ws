@@ -39,7 +39,7 @@ public class CreateVaHandler implements VaHandler {
 
         VirtualAccount va = new VirtualAccount();
         BeanUtils.copyProperties(request, va);
-        va.setAccountNumber(clientId + String.format("%-12s", request.getAccountNumber() ).replace(' ', '0'));
+        va.setAccountNumber(String.format("%-12s", request.getAccountNumber() ).replace(' ', '0'));
 
         if(StringUtils.hasText(request.getInvoiceType())) {
             va.setInvoiceType(PaymentServiceConstants.INVOICE_TYPE_PREFIX + request.getInvoiceType());
@@ -52,7 +52,7 @@ public class CreateVaHandler implements VaHandler {
         try {
             paymentService.create(va);
             vaResponse.setRequestStatus(VaRequestStatus.SUCCESS);
-            vaResponse.setAccountNumber(va.getAccountNumber());
+            vaResponse.setAccountNumber(clientId + va.getAccountNumber());
             LOGGER.info("[VA-REQUEST-CREATE] : Success : {}-{}-{}", va.getAccountNumber(), va.getName(), va.getAmount());
         } catch (VirtualAccountNumberAlreadyExistsException | InvoiceNumberAlreadyExistsException e){
             LOGGER.error("[VA-REQUEST-CREATE] : Error : {}", e.getMessage());
