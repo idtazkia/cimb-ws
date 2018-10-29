@@ -58,8 +58,6 @@ public class CimbWsEndpoint {
                 LOGGER.debug("Customer Key 1 : {}", accountNumber);
             }
 
-
-
             VirtualAccount va = paymentService.findByAccountNumber(accountNumber);
             fillResponseData(va, response);
             response.getInquiryRs().setResponseCode(PaymentServiceConstants.RC_SUCCESS);
