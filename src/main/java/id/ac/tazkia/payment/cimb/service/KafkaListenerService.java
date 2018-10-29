@@ -25,9 +25,9 @@ public class KafkaListenerService {
     @Autowired private VaHandlerFactory vaHandlerFactory;
     @Autowired private ObjectMapper objectMapper;
 
-    @KafkaListener(topics = "${kafka.topic.va.request}", groupId = "${spring.kafka.consumer.group-id}")
+    @KafkaListener(topics = "${kafka.topic.va.request}")
     public void receiveVirtualAccountRequest(String message){
-        LOGGER.debug("[VA-REQUEST] - [MESSAGE]: {}", message);
+        LOGGER.info("[VA-REQUEST] - [MESSAGE]: {}", message);
         try {
             VaRequest vaRequest = objectMapper.readValue(message, VaRequest.class);
             if (!bankId.equals(vaRequest.getBankId())) {
@@ -37,6 +37,7 @@ public class KafkaListenerService {
             VaResponse vaResponse = vaHandlerFactory
                     .getHandler(vaRequest.getRequestType()).process(vaRequest);
             kafkaSenderService.send(vaResponse);
+            LOGGER.info("[VA-RESPONSE] - [MESSAGE]: {}", vaResponse);
         } catch (IOException e) {
             LOGGER.error(e.getMessage(),e);
         }
