@@ -20,6 +20,7 @@ public class PaymentService {
 
     @Autowired private VirtualAccountDao virtualAccountDao;
     @Autowired private PaymentDao paymentDao;
+    @Autowired private KafkaSenderService kafkaSenderService;
 
     public VirtualAccount findByAccountNumber(String accountNumber) throws VirtualAccountNotFoundException {
         if (!StringUtils.hasText(accountNumber)){
@@ -97,6 +98,9 @@ public class PaymentService {
 
         virtualAccountDao.save(va);
         paymentDao.save(payment);
+
+        kafkaSenderService.send(payment);
+
         return payment;
 
     }
