@@ -10,3 +10,4 @@ fi
 service $APPNAME stop
 rm /var/lib/$APPNAME/$APPNAME.jar
 ln -s /var/lib/$APPNAME/$1 /var/lib/$APPNAME/$APPNAME.jar
+service $APPNAME start
