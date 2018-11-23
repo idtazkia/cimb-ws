@@ -33,3 +33,18 @@ values ('0a03e5fd-e2d7-43d6-aaf4-db6c14e06a12', '20180903002', '1234567890123456
 
 insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
 values ('0a03e5fd-e2d7-43d6-aaf4-db6c14e06a13', '20180903003', '123456789012345603', 'CLOSED', 'TAZKIATES1', 'Test Account 003', 120003, '2018-09-03 08:03:00', '2019-02-03', 'ACTIVE');
+
+insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
+values ('3579fcce-be7b-48cf-b065-f05d25aba01d', '20181123001', '080234567896', 'OPEN', 'TAZKIAINF2', 'Test Open Account 001', 10001, '2018-11-01 23:59:59', '2019-02-01', 'ACTIVE');
+
+insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
+values ('4579fcce-be7b-48cf-b065-f05d25aba01d', '20181123002', '081234567896', 'OPEN', 'TAZKIAINF2', 'Test Open Account 002', 10002, '2018-11-01 23:59:59', '2019-02-01', 'ACTIVE');
+
+insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
+values ('5579fcce-be7b-48cf-b065-f05d25aba01d', '20181123003', '082234567896', 'OPEN', 'TAZKIAINF2', 'Test Open Account 003', 10003, '2018-11-01 23:59:59', '2019-02-01', 'ACTIVE');
+
+insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
+values ('6579fcce-be7b-48cf-b065-f05d25aba01d', '20181123004', '083234567896', 'OPEN', 'TAZKIAINF2', 'Test Open Account 004', 10004, '2018-11-01 23:59:59', '2019-02-01', 'ACTIVE');
+
+insert into virtual_account (id, invoice_number, account_number, account_type, invoice_type, name, amount, create_time, expire_date, account_status)
+values ('7579fcce-be7b-48cf-b065-f05d25aba01d', '20181123005', '084234567896', 'OPEN', 'TAZKIAINF2', 'Test Open Account 005', 10005, '2018-11-01 23:59:59', '2019-02-01', 'ACTIVE');
