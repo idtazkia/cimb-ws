@@ -41,6 +41,13 @@ public class PaymentService {
         return va;
     }
 
+    public void update(VirtualAccount virtualAccount) throws VirtualAccountAlreadyPaidException {
+        if(paymentDao.countByVirtualAccount(virtualAccount) > 0) {
+            throw new VirtualAccountAlreadyPaidException("VA "+virtualAccount.getAccountNumber()+" already has payment in it");
+        }
+        virtualAccountDao.save(virtualAccount);
+    }
+
     public void delete(String vaNumber) throws VirtualAccountAlreadyPaidException {
         Optional<VirtualAccount> va = virtualAccountDao.findByAccountNumberAndAccountStatus(vaNumber, AccountStatus.ACTIVE);
         if (va.isPresent()) {
